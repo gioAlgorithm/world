@@ -7,6 +7,7 @@ import CountryContainer from '@/components/CountryContainer/CountryContainer'
 import NavbarLetter from '@/components/NavbarLetter/NavbarLetter'
 
 export default function Home() {
+  
   const {loading, data, error} = useCountries();
   const [selectedletter, setSelectedLetter] = useState("all")
 

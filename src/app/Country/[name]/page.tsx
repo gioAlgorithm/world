@@ -4,6 +4,8 @@ import { useCountry } from '@/hooks/useCountry'
 import Image from 'next/image'
 import Loading from '@/components/Loading/Loading'
 import style from "./Country.module.scss"
+import {metadata} from "./metaData"
+import { useEffect } from 'react'
 
 interface Props{
   params:{
@@ -12,11 +14,20 @@ interface Props{
 }
 
 export default function Country({params}: Props) {
-
   // creating decoded uri to access the exact name 
   const decodedName = params.name ? decodeURIComponent(params.name as string) : '';
 
   const {data, error, loading} = useCountry(decodedName)
+  // metadata 
+  useEffect(() => {
+    // Set the page title dynamically based on the country name
+    if (data && data.countries.edges[0] && data.countries.edges[0].node.name) {
+      metadata.title = `${data.countries.edges[0].node.name}`;
+      if (metadata.title) {
+        document.title = String(metadata.title);
+      }
+    }
+  }, [data]);
 
   if (loading) return <Loading />
 
