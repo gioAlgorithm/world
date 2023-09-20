@@ -5,8 +5,15 @@ import Loading from '@/components/Loading/Loading'
 import { useCountries } from '@/hooks/useCountries'
 import CountryContainer from '@/components/CountryContainer/CountryContainer'
 import NavbarLetter from '@/components/NavbarLetter/NavbarLetter'
+import { useEffect } from 'react'
+import {metadata} from "./metaData"
 
 export default function Home() {
+  useEffect(() => {
+    if (metadata.title) {
+      document.title = String(metadata.title)
+    }
+  }, []);
   
   const {loading, data, error} = useCountries();
   const [selectedletter, setSelectedLetter] = useState("all")
