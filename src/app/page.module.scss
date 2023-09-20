@@ -1,0 +1,13 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 70px;
+  background-color: rgb(38, 38, 38);
+  width: 100%;
+
+  .countriesMainContainer{
+    width: 80%;
+  }
+}

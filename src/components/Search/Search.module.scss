@@ -1,0 +1,94 @@
+.search{
+    display: flex;
+    width: 240px;
+    height: 40px;
+    border-radius: 40px;
+    color: rgb(42, 148, 152);
+    align-items: center;
+    padding: 0px 15px;
+    background-color: rgb(17, 17, 17);
+    color: white;
+
+    &:focus-within{
+        border: 2px solid rgb(42, 148, 152);
+        margin-left: -4px;   
+    }
+    &:focus-within input{
+        margin-right: -6px;
+    }
+
+    svg{
+        position: relative;
+        font-size: 26px;
+    }
+
+    input{
+        background-color: rgb(17, 17, 17);
+        border: none;
+        font-size: 0.85rem;
+        width: 100%;
+        color: rgb(42, 148, 152);
+        margin-left: 8px;
+        outline: none;
+        font-family: 'Belanosima', sans-serif;
+        font-weight: 700;
+    }
+}
+// undisplay placeholder whenever user clicks on search input 
+.search input:focus::placeholder {
+    opacity: 0;
+}
+
+.menu{
+    position: absolute;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    margin-top: 11px;
+    border-radius: 5px;
+    margin-left: -80px;
+}
+.menuCard{
+    width: 320px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    
+
+    div{
+        width: 80px;
+        height: 40px;
+        background-size: cover;
+        background-position: center;
+    }
+    h1{
+        width: 100%;
+        text-align: center;
+        font-size: 1.4rem;
+        margin-left: 10px;
+        font-weight: 400;
+    }
+    &:hover{
+        background-color: rgb(13, 13, 13);
+    }
+
+}
+.noData{
+    width: 320px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.menuLoading{
+    display: none;
+}
+@media(max-width: 325px){
+    .menu{
+        margin-left: -70px;
+    }
+}

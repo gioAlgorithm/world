@@ -1,0 +1,240 @@
+
+.country{
+    padding-top: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: white;
+    font-family: 'Belanosima', sans-serif;
+}
+.countryName{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    align-items: center;
+    img{
+        height: 10rem;
+        width: 16rem;
+        margin-right: 1rem;
+    }
+    h1{
+        font-size: 3.3rem;
+        text-align: center;
+        min-width: 400px;
+    }
+}
+.countryInfo{
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+    
+    .countryFirst{
+        width: 100%;
+        min-height: 40px;
+        background-color: rgba(30, 30, 30, 0.9);
+        display: flex;
+        align-items: stretch;
+        
+        p{
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 400;
+            margin-right: 1rem;
+        }
+        span{
+            width: 35%;
+            display: flex;
+            background-color: rgba(4, 4, 4, 0.3);
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            text-align: center;
+
+        }
+        h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            width: 65%;
+            text-align: center;
+        }
+    }
+    .countrySecond{
+        width: 100%;
+        min-height: 40px;
+        background-color: rgba(30, 30, 30, 0.9);
+        display: flex;
+        align-items: stretch;
+
+        p{
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 400;
+            margin-right: 1rem;
+        }
+        span{
+            width: 35%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+        h1{
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            width: 65%;
+            text-align: center;
+            background-color: rgba(4, 4, 4, 0.3);
+            
+        }
+    }
+    .countryFourth{
+        width: 100%;
+        min-height: 40px;
+        background-color: rgba(30, 30, 30, 0.9);
+        display: flex;
+        align-items: stretch;
+
+        p{
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 400;
+            margin-right: 1rem;
+        }
+        span{
+            width: 35%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            width: 65%;
+            text-align: center;
+            background-color: rgba(4, 4, 4, 0.3);
+            flex-wrap: wrap;
+        }
+    }
+}
+
+@media(max-width: 960px){
+    .countryName{
+        width: 85%;
+        justify-content: space-around;
+        img{
+            width: 12rem;
+            height: 7rem;
+        }
+        h1{
+            font-size: 2rem;
+            min-width: 100px;
+        }
+    }
+    .countryInfo{
+        width: 85%;
+    }
+}
+@media(max-width: 700px){
+   .countryInfo{
+    .countryFirst{
+        p{
+            font-size: 1.1rem;
+        }
+        span{
+            font-size: 1.2rem
+        }
+    }
+    .countrySecond{
+        p{
+            font-size: 1.1rem;
+        }
+        span{
+            font-size: 1.2rem
+        }
+    }
+    .countryFourth{
+        p{
+            font-size: 1.1rem;
+        }
+        span{
+            font-size: 1.2rem
+        }
+    }}
+}
+@media(max-width: 645px){
+    .countryName{
+        img{
+            width: 10rem;
+            height: 6rem;
+        }
+        h1{
+            font-size: 1.5rem;
+            min-width: 100px;
+        }
+    }
+}
+@media(max-width: 425px){
+    .countryName{
+        width: 95%;
+        img{
+            width: 8rem;
+            height: 5rem;
+        }
+        h1{
+            font-size: 1.3rem;
+            min-width: 100px;
+        }
+    }
+    .countryInfo{
+        width: 95%;
+        .countryFirst{
+            p{
+                font-size: 1rem;
+            }
+            span{
+                font-size: 1.1rem
+            }
+        }
+        .countrySecond{
+            p{
+                font-size: 1rem;
+            }
+            span{
+                font-size: 1.1rem
+            }
+        }
+        .countryFourth{
+            p{
+                font-size: 1rem;
+            }
+            span{
+                font-size: 1.1rem
+            }
+        }
+    }
+}
+@media(max-width: 375px){
+    .countryName{
+        img{
+            width: 7rem;
+            height: 4.2rem;
+        }
+        h1{
+            font-size: 1.1rem;
+            min-width: 100px;
+        }
+    }
+}

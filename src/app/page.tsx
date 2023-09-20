@@ -1,95 +1,59 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client"
+import style from './page.module.scss'
+import React, {useState} from 'react'
+import Loading from '@/components/Loading/Loading'
+import { useCountries } from '@/hooks/useCountries'
+import CountryContainer from '@/components/CountryContainer/CountryContainer'
+import NavbarLetter from '@/components/NavbarLetter/NavbarLetter'
 
 export default function Home() {
+  const {loading, data, error} = useCountries();
+  const [selectedletter, setSelectedLetter] = useState("all")
+
+  if(loading) return <Loading />
+  if(error) return <div>Something went wrong</div>
+
+  // creating new array to hold the sorted countries.
+  // and then sorting array by name
+  const sortedCountries = [...data.countries.edges]
+
+  sortedCountries.sort((a,b)=>
+    a.node.name.localeCompare(b.node.name)
+  )
+  // group countries by initial letter
+  const groupedCountries = sortedCountries.reduce((acc, item)=>{
+    const letter = item.node.name.charAt(0).toUpperCase()
+    if(!acc[letter]){
+      acc[letter]=[]
+    }
+    acc[letter].push(item)
+    return acc
+  }, {})
+
+  const handleLetterClick = (letter: string) =>{
+    setSelectedLetter(letter)
+  }
+
+  const letters = Object.keys(groupedCountries)
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <>
+      <main className={style.main}>
+        <NavbarLetter 
+          selectedLetter={selectedletter}
+          onLetterClick={handleLetterClick}
+          letters={letters}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        {Object.entries(groupedCountries).map(([letter, countries]) => (
+          <div
+            key={letter}
+            className={style.countriesMainContainer}
+            style={{ display: selectedletter === letter || selectedletter === "all" ? "block" : "none" }}
+          >
+            <CountryContainer letter={letter} countries={countries} />
+          </div>
+        ))}
+      </main>
+    </>
   )
 }
