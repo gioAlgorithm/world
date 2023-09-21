@@ -137,6 +137,7 @@ export default function Country({params}: Props) {
           })}</h1>
         </div>
       </div>
+      <p className={style.copyright}>Copyright © 2023 GioAlgorithm All Rights Reserved.</p>
     </div>
   )
 }

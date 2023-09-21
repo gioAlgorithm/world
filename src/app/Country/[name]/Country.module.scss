@@ -6,7 +6,7 @@
     align-items: center;
     width: 100%;
     color: white;
-    font-family: 'Belanosima', sans-serif;
+    font-weight: 400;
 }
 .countryName{
     display: flex;
@@ -22,6 +22,7 @@
         font-size: 3.3rem;
         text-align: center;
         min-width: 400px;
+        font-weight: 400;
     }
 }
 .countryInfo{
@@ -29,7 +30,6 @@
     width: 70%;
     flex-direction: column;
     margin-top: 2rem;
-    margin-bottom: 6rem;
     
     .countryFirst{
         width: 100%;
@@ -61,6 +61,7 @@
             font-size: 1.2rem;
             width: 65%;
             text-align: center;
+            font-weight: 400;
         }
     }
     .countrySecond{
@@ -93,7 +94,7 @@
             width: 65%;
             text-align: center;
             background-color: rgba(4, 4, 4, 0.3);
-            
+            font-weight: 400;
         }
     }
     .countryFourth{
@@ -128,6 +129,14 @@
             flex-wrap: wrap;
         }
     }
+}
+.copyright{
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: white;
 }
 
 @media(max-width: 960px){

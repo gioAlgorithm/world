@@ -61,6 +61,7 @@ export default function Home() {
             <CountryContainer letter={letter} countries={countries} />
           </div>
         ))}
+        <p className={style.copyright}>Copyright © 2023 GioAlgorithm All Rights Reserved.</p>
       </main>
     </>
   )
