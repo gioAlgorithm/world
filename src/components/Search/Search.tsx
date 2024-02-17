@@ -65,44 +65,44 @@ export default function Search() {
 
   return (
     <div>
-    {!loading && 
-    
-    <div className={style.searchContainer}>
-      <div className={style.search} onFocus={handleFocus}>
-        <AiOutlineSearch fill="rgb(42, 148, 152)" />
-        <input
-          type="text"
-          value={text}
-          placeholder="Enter a country name..."
-          ref={searchRef}
-          onChange={handleChange}
-        />
-      </div>
-      {showMenu && (
-        <div className={style.menu} ref={menuRef}>
-          {data.countries.edges
-            .filter((country: any) => country.node.name.toLowerCase().startsWith(query))
-            .slice(0, 7)
-            .map((country: any) => {
-              return (
-                <Link
-                  key={country.node.name}
-                  href={`/Country/${encodeURIComponent(country.node.name)}`}
-                  onClick={handleLink}
-                  className={style.menuCard}
-                >
-                  <div style={{ backgroundImage: `url(${country.node.flag})` }}></div>
-                  <h1>{country.node.name}</h1>
-                </Link>
-              );
-            })}
-            {data.countries.edges.filter((country: any) => country.node.name.toLowerCase().startsWith(query))
-                .length === 0 && (
-                <div className={style.noData}>No matching countries found.</div>
-            )}
+      {!loading && 
+      
+      <div className={style.searchContainer}>
+        <div className={style.search} onFocus={handleFocus}>
+          <AiOutlineSearch fill="rgb(42, 148, 152)" />
+          <input
+            type="text"
+            value={text}
+            placeholder="Enter a country name..."
+            ref={searchRef}
+            onChange={handleChange}
+          />
         </div>
-      )}
-    </div>}
+        {showMenu && (
+          <div className={style.menu} ref={menuRef}>
+            {data.countries.edges
+              .filter((country: any) => country.node.name.toLowerCase().startsWith(query))
+              .slice(0, 7)
+              .map((country: any) => {
+                return (
+                  <Link
+                    key={country.node.name}
+                    href={`/Country/${encodeURIComponent(country.node.name)}`}
+                    onClick={handleLink}
+                    className={style.menuCard}
+                  >
+                    <div style={{ backgroundImage: `url(${country.node.flag})` }}></div>
+                    <h1>{country.node.name}</h1>
+                  </Link>
+                );
+              })}
+              {data.countries.edges.filter((country: any) => country.node.name.toLowerCase().startsWith(query))
+                  .length === 0 && (
+                  <div className={style.noData}>No matching countries found.</div>
+              )}
+          </div>
+        )}
+      </div>}
     </div>
   );
 }

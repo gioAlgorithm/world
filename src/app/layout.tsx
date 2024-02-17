@@ -1,7 +1,6 @@
 "use client"
 import Navbar from '@/components/Navbar/Navbar'
-import './globals.css'
-import type { Metadata } from 'next'
+import './globals.scss'
 import { Belanosima } from 'next/font/google'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import {metadata} from "./metaData"
